@@ -1,0 +1,104 @@
+
+<style>
+  #carlist{
+    height: 800px;
+    width: 40%;
+    float: left;
+    margin: 10px;
+    border: solid 1px;
+  }
+  #detaillist{
+    height: 700px;
+    width: 40%;
+    float:  right;
+    margin: 10px;
+    border: solid 1px;
+  }
+</style>
+
+<div class="container" style="width: 100%; margin: 10; float: top;">
+
+  <table>
+
+    <tr>
+
+      <td>
+        <div>
+         <label>Car</label>
+         <input type="text" class="form-control" [(ngModel)]="newCarName">
+        </div>
+      </td>
+
+      <td>
+        <div>
+          <label>Car part</label>
+          <input type="text" class="form-control" [(ngModel)]="newCarPart">
+       </div>
+      </td>
+
+      <td>
+        <div>
+          <label>price</label>
+          <input type="number" class="form-control" [(ngModel)]="newCarPrice">
+        </div>
+      </td>
+
+    <td>
+      <div>
+        <button type="submit" (click)="$event.preventDefault(); addNewCar()">Add Car</button>
+      </div>
+    </td>
+
+  
+
+  </tr>
+
+  </table>
+
+</div>
+
+
+
+
+  <div id="carlist">
+
+  <table>
+    
+
+  @for (item of items; track item;) {   
+
+    
+        <tr>
+    
+        <td>
+        <button (click)="$event.preventDefault(); showServices(item.carName)">details </button>
+        </td>
+        <td>
+          <div>{{item.carName}}</div>
+        </td>
+
+        </tr>
+     
+      }
+    
+  </table>
+
+</div>
+
+
+
+<div id="detaillist">
+    <div>
+      <div>
+        <h1>{{serviceVisibleName}}</h1>
+      </div>
+      @for (service of services; track service;) {  
+        <ul>
+          <li>{{service}}</li>
+          </ul>
+      }
+      
+    </div>
+</div>
+
+

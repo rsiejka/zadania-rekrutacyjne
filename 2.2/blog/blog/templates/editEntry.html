@@ -1,0 +1,19 @@
+<br>
+<br>
+<center><h1 class="display-3">Nowy wpis</h1></center>
+<br>
+
+{% extends "base.html" %}
+{% block content %}
+<form class="form-group my-2 my-lg-0 mr-auto" method="post">
+    {% csrf_token %}
+
+        <label style="font-size: 144%" class="label label-success" for="{{ field.auto_id }}">{{ field.label }}</label>
+        <input class="form-control form-control-lg" type="text" name="content" value="{{content}}">
+
+    <br><br>
+    <center>
+        <button type="submit" class="btn btn-outline-success btn-lg btn-block">Edytuj wpis</button>
+    </center>
+</form>
+{% endblock %}

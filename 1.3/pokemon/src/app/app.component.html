@@ -1,0 +1,67 @@
+
+
+<style>
+  #pokemonlist{
+    overflow: scroll;
+    height: 800px;
+    width: 51%;
+    float: left;
+  }
+  #detaillist{
+    overflow: scroll;
+    height: 800px;
+    width: 49%;
+    float:  right;
+  }
+</style>
+
+<div id="pokemonlist">
+
+  <table>
+    
+@for (item of pokemons; track $index) {
+  <tr>
+
+  <td>{{item.name}}</td>
+  <td><button (click)="$event.preventDefault(); showDetails(item.name,item.url)">details</button></td>
+  </tr>
+}
+
+</table>
+
+</div>
+
+<div id="detaillist">
+
+<div>
+  <div>
+    <h1>{{detailName}}</h1>
+  </div>
+  
+  <div>
+    @if (detailsVisible == 1) {
+      <h3>abilities</h3>
+    }
+  
+  @for (detail of detailsAbilities; track detail;) {  
+    <ul>
+      <li>{{detail.ability.name}}</li>
+      </ul>
+  }
+  </div>
+
+  @if (detailsVisible == 1) {
+    <h3>forms</h3>
+  }
+
+  <div>
+    @for (detail of detailsForms; track detail;) {  
+      <ul>
+        <li>{{detail.name}}</li>
+        </ul>
+    }
+  </div>
+  
+</div>
+
+</div>

@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <style>
+
+        table, td, th{
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        form{
+            margin: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+<center>
+<table>
+    <tr>
+        <th>Task</th>
+        <th>Active?</th>
+        <th>Actions</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{task[1]}}</td>
+        <td>{{task[2]}}</td>
+        <td>
+            <a href="/delete/{{task[0]}}">Delete</a> <br>
+            <a href="/update/{{task[0]}}">Update</a>
+        </td>
+    </tr>
+     {% endfor %}
+</table>
+
+
+<form action="/" method="POST">
+    <input type="text" name="task" id="task">
+    <input type="checkbox" name="is_active" id="is_active">
+    <input type="submit" value="Add Task">
+</form>
+
+    </center>
+</body>
+
+</html>
